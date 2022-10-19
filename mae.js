@@ -72,6 +72,7 @@ function uploadDealcsv () {};
             parsedata.push(newLinebrk[i].split(","))
         }
         let solutiondata = loadFile('https://tinysoccerball.github.io/BenchmarkSolutions.csv');
+        console.log(solutiondata);
         //now we pull the x, y, z, data from the arrays so we can compare
         let expected = [];
         let received = [];
@@ -83,9 +84,9 @@ function uploadDealcsv () {};
           received.push(parsedata[i][3]);
           received.push(parsedata[i][4]);
         }
-        console.log(expected);
-        console.log(received);
-        console.table(parsedata);
+        //console.log(expected);
+        //console.log(received);
+        //console.table(parsedata);
         let error = calculateMeanAbsoluteError(expected, received);
         console.log(error);
         document.getElementById('MAE').innerHTML = error;
