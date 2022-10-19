@@ -33,7 +33,7 @@ function loadFile(filePath) {
       for(let i = 0; i < csvArray.length; i++){
         csvArray[i] = csvArray[i].split(',');
       }
-      console.table(csvArray);
+      //console.table(csvArray);
       return csvArray;
     }
 
@@ -88,7 +88,7 @@ function uploadDealcsv () {};
         //console.log(received);
         //console.table(parsedata);
         let error = calculateMeanAbsoluteError(expected, received);
-        console.log(error);
+        //console.log(error);
         document.getElementById('MAE').innerHTML = error;
         return parsedata;
     }
