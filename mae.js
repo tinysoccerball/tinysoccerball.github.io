@@ -71,7 +71,7 @@ function uploadDealcsv () {};
 
             parsedata.push(newLinebrk[i].split(","))
         }
-        let solutiondata = loadFile('./BenchmarkSolutions.csv');
+        let solutiondata = loadFile('https://tinysoccerball.github.io/BenchmarkSolutions.csv');
         //now we pull the x, y, z, data from the arrays so we can compare
         let expected = [];
         let received = [];
