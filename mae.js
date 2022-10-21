@@ -10,15 +10,6 @@ const calculateMeanAbsoluteError = (y, x) => {
 };
 
 
-// Usage example:
-
-//const y = [0,   1,   4,    9]; // expected values
-//const x = [0.1, 0.9, 3.5, 10]; // actual values
-
-//const error = calculateMeanAbsoluteError(y, x); // MAE
-
-//console.log(error);  // 0.425
-
 function loadFile(filePath) {
       var result = null;
       var xmlhttp = new XMLHttpRequest();
@@ -29,7 +20,7 @@ function loadFile(filePath) {
       }
       let csvArray = [];
       csvArray.push(result);
-      csvArray = csvArray[0].split('\r\n');
+      csvArray = csvArray[0].split('\n');
       for(let i = 0; i < csvArray.length; i++){
         csvArray[i] = csvArray[i].split(',');
       }
@@ -71,8 +62,8 @@ function uploadDealcsv () {};
 
             parsedata.push(newLinebrk[i].split(","))
         }
-        let solutiondata = loadFile('https://tinysoccerball.github.io/BenchmarkSolutions.csv');
-        console.log(solutiondata);
+        let solutiondata = loadFile('https://raw.githubusercontent.com/tinysoccerball/synthetic-data-generation/main/BenchmarkSolutions.csv');
+        //console.log(solutiondata);
         //now we pull the x, y, z, data from the arrays so we can compare
         let expected = [];
         let received = [];
@@ -84,11 +75,7 @@ function uploadDealcsv () {};
           received.push(parsedata[i][3]);
           received.push(parsedata[i][4]);
         }
-        //console.log(expected);
-        //console.log(received);
-        //console.table(parsedata);
         let error = calculateMeanAbsoluteError(expected, received);
-        //console.log(error);
         document.getElementById('MAE').innerHTML = error;
         return parsedata;
     }
