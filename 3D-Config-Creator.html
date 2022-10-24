@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuration File Creator for Morphing 3D Models</title>
+</head>
+<body>
+    <h1>Configuration File Creator for Morphing 3D Models</h1>
+    <table>
+        <tr>
+            <td style="border: 1px solid black;padding: 10px;">
+                <p id="Specifications"><b>Please enter the values for each landmark and then click 'Add Modification' button. Once you are done with adding landmarks that you want to morph, click the 'Make and Download Configuration File' button.</b></p>
+        </td>
+        </tr>
+        
+    <tr>
+            <td style="border: 1px solid black;padding: 10px;">
+                <br>
+    <script src="instructionCreation.js"></script>
+    Model Name: <input type="text" id="modelname" name="modelname" placeholder = "Model Name"><br>
+    Fall off Type:<select name="falloff" id="falloff">
+      <option value="SMOOTH">Smooth (Recommended)</option>
+      <option value="SPHERE">Sphere</option>
+      <option value="INVERSE_SQUARE">Inverse Square</option>
+    </select><br>
+    <br>
+    </td>
+            </tr>
+        <tr>
+            <td style="border: 1px solid black;padding: 10px;">
+                <br>
+    Transformation Type:<select name="transformation" id="transformation">
+      <option value="Translation">Translation (Recommended)</option>
+      <option value="Scale">Scale</option>
+    </select><br>
+    Influence Raidus: <input type="text" id="influence" name="influence" placeholder = "influence"><br>
+    Landmark Abbreviation: <input type="text" id="abbrv" name="abbrv" placeholder = "abbreviation">
+        Is dual landmark?<select name="dual" id="dual">
+          <option value="N">No</option>
+          <option value="Y">Yes</option>
+        </select><br>
+        If dual landmark, corresponding landmark's abbreviation:<input type="text" id="dualabbrv" name="dualabbrv" placeholder = "dual abbrv">
+        <br>
+    The number of iterations for the landmark: <input type="text" id="changenumber" name="changenumber" placeholder = "# of Changes"><br>
+    Starting Point Adjustment (This value is added to the initial location of the landmark and can be a negative value):<br>
+    <input type="text" id="startx" name="startx" placeholder = "Adjustment for X">
+    <input type="text" id="starty" name="starty" placeholder = "Adjustment for Y">
+    <input type="text" id="startz" name="startz" placeholder = "Adjustment for Z"><br>
+    Magnitude of Changes at Each Iteration (This value is added to the previous iteration's location):<br>
+    <input type="text" id="dx" name="dx" placeholder = "Magnitude of Change on X">
+    <input type="text" id="dy" name="dy" placeholder = "Magnitude of Change on Y">
+    <input type="text" id="dz" name="dz" placeholder = "Magnitude of Change on Y"><br>
+        <br>
+    <button onclick="addModification()">Add modification</button>
+    <br>
+    </td>
+            </tr>
+        </table>
+    <br>
+    <table id="container"></table>
+    <p id="Output"></p>
+    <button onclick="downloadJSON()">Make and Download Configuration JSON File</button>
+    <p id="links">
+        <a href="./mae.html">Results Check Page</a>
+    </p>
+</body>
+</html>

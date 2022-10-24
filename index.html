@@ -1,69 +1,116 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuration File Creator for Morphing 3D Models</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Digitized Rhinoplasty</title>
+    <meta name="description"
+          content="Knight is a beautiful Bootstrap 4 template for product landing pages."/>
+
+    <!--Inter UI font-->
+    <link href="https://rsms.me/inter/inter-ui.css" rel="stylesheet">
+
+    <!--vendors styles-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+    <!-- Bootstrap CSS / Color Scheme -->
+    <link rel="stylesheet" href="css/default.css" id="theme-color">
 </head>
 <body>
-    <h1>Configuration File Creator for Morphing 3D Models</h1>
-    <table>
-        <tr>
-            <td style="border: 1px solid black;padding: 10px;">
-                <p id="Specifications"><b>Please enter the values for each landmark and then click 'Add Modification' button. Once you are done with adding landmarks that you want to morph, click the 'Make and Download Configuration File' button.</b></p>
-        </td>
-        </tr>
-        
-    <tr>
-            <td style="border: 1px solid black;padding: 10px;">
-                <br>
-    <script src="instructionCreation.js"></script>
-    Model Name: <input type="text" id="modelname" name="modelname" placeholder = "Model Name"><br>
-    Fall off Type:<select name="falloff" id="falloff">
-      <option value="SMOOTH">Smooth (Recommended)</option>
-      <option value="SPHERE">Sphere</option>
-      <option value="INVERSE_SQUARE">Inverse Square</option>
-    </select><br>
-    <br>
-    </td>
-            </tr>
-        <tr>
-            <td style="border: 1px solid black;padding: 10px;">
-                <br>
-    Transformation Type:<select name="transformation" id="transformation">
-      <option value="Translation">Translation (Recommended)</option>
-      <option value="Scale">Scale</option>
-    </select><br>
-    Influence Raidus: <input type="text" id="influence" name="influence" placeholder = "influence"><br>
-    Landmark Abbreviation: <input type="text" id="abbrv" name="abbrv" placeholder = "abbreviation">
-        Is dual landmark?<select name="dual" id="dual">
-          <option value="N">No</option>
-          <option value="Y">Yes</option>
-        </select><br>
-        If dual landmark, corresponding landmark's abbreviation:<input type="text" id="dualabbrv" name="dualabbrv" placeholder = "dual abbrv">
-        <br>
-    The number of iterations for the landmark: <input type="text" id="changenumber" name="changenumber" placeholder = "# of Changes"><br>
-    Starting Point Adjustment (This value is added to the initial location of the landmark and can be a negative value):<br>
-    <input type="text" id="startx" name="startx" placeholder = "Adjustment for X">
-    <input type="text" id="starty" name="starty" placeholder = "Adjustment for Y">
-    <input type="text" id="startz" name="startz" placeholder = "Adjustment for Z"><br>
-    Magnitude of Changes at Each Iteration (This value is added to the previous iteration's location):<br>
-    <input type="text" id="dx" name="dx" placeholder = "Magnitude of Change on X">
-    <input type="text" id="dy" name="dy" placeholder = "Magnitude of Change on Y">
-    <input type="text" id="dz" name="dz" placeholder = "Magnitude of Change on Y"><br>
-        <br>
-    <button onclick="addModification()">Add modification</button>
-    <br>
-    </td>
-            </tr>
-        </table>
-    <br>
-    <table id="container"></table>
-    <p id="Output"></p>
-    <button onclick="downloadJSON()">Make and Download Configuration JSON File</button>
-    <p id="links">
-        <a href="./mae.html">Results Check Page</a>
-    </p>
+
+<!--navigation-->
+<section class="smart-scroll">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <a class="navbar-brand heading-black" href="index2.html">
+                Digitized Rhinoplasty
+            </a>
+            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse"
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span data-feather="grid"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#features"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#pricing"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#faq"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#blog"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll d-flex flex-row align-items-center text-primary" href="./mae.html">
+                            <em data-feather="layout" width="18" height="18" class="mr-2"></em>
+                            Error Checker
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</section>
+
+<!--hero header-->
+<section class="py-7 py-md-0 bg-hero" id="home">
+    <div class="container">
+        <div class="row vh-md-100">
+            <div class="col-md-8 col-sm-10 col-12 mx-auto my-auto text-center">
+                <h1 class="heading-black text-capitalize">Digitally Perform Rhinoplasty</h1>
+                <p class="lead py-3">With the power of technology, now anyone can perform rhinoplasty!</p>
+                <form action="./index.html">
+                <button type="submit" class="btn btn-primary d-inline-flex flex-row align-items-center">
+                    Create Configuration Files
+                    <em class="ml-2" data-feather="arrow-right"></em>
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--scroll to top-->
+<div class="scroll-top">
+    <i class="fa fa-angle-up" aria-hidden="true"></i>
+</div>
+
+<!-- theme switcher (FOR DEMO ONLY - REMOVE FROM PRODUCTION)-->
+<div class="switcher-wrap">
+    <div class="switcher-trigger">
+        <span class="fa fa-gear"></span>
+    </div>
+    <div class="color-switcher">
+        <h6>Color Switcher</h6>
+        <ul class="mt-3 clearfix">
+            <li class="bg-teal active" data-color="default" title="Default Teal"></li>
+            <li class="bg-purple" data-color="purple" title="Purple"></li>
+            <li class="bg-blue" data-color="blue" title="Blue"></li>
+            <li class="bg-red" data-color="red" title="Red"></li>
+            <li class="bg-green" data-color="green" title="Green"></li>
+            <li class="bg-indigo" data-color="indigo" title="Indigo"></li>
+            <li class="bg-orange" data-color="orange" title="Orange"></li>
+            <li class="bg-cyan" data-color="cyan" title="Cyan"></li>
+            <li class="bg-yellow" data-color="yellow" title="Yellow"></li>
+            <li class="bg-pink" data-color="pink" title="Pink"></li>
+        </ul>
+        <p>These are just demo colors. You can <b>easily</b> create your own color scheme.</p>
+    </div>
+</div>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script src="js/scripts.js"></script>
 </body>
 </html>
